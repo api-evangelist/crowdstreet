@@ -1,0 +1,56 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts (0-working/probe-domain-security.py,
+  plus manual probes of the app/API/help hosts, which are not reachable from apis.yml
+  link properties alone)
+hosts:
+- host: crowdstreet.com
+  role: marketing site (Framer-hosted)
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 21 05:35:35 2026 GMT
+  hsts: false
+  hsts_max_age: null
+- host: app2.crowdstreet.com
+  role: investor web application (SPA)
+  https: true
+  http_status: 200
+  cert_expires: Nov 20 23:59:59 2026 GMT
+  hsts: false
+  hsts_max_age: null
+- host: api.crowdstreet.com
+  role: private backend API (AWS API Gateway; unauthenticated requests return '{"message":"Missing
+    Authentication Token"}')
+  https: true
+  http_status: 403
+  cert_expires: Dec 30 23:59:59 2026 GMT
+  hsts: false
+  hsts_max_age: null
+- host: help.crowdstreet.com
+  role: help center / education center
+  https: true
+  http_status: 200
+  server: Microsoft-IIS/10.0
+  cert_expires: Dec 12 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 2592000
+domains:
+- domain: crowdstreet.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+notes:
+- HSTS is absent on the marketing site, the investor application and the API host;
+  only help.crowdstreet.com sets Strict-Transport-Security (max-age 2592000, 30 days,
+  below the 31536000 commonly required for preload).
+- No CAA records and no DNSSEC on crowdstreet.com.
+- DMARC is published but the policy is p=none (monitor only), so spoofed mail is not
+  rejected or quarantined.
+- 'Wildcard DNS caveat: status., trust., support., developer. and docs.crowdstreet.com
+  all resolve and return the same 858-byte investor-portal SPA shell. These are catch-all
+  responses, not real status/trust/developer surfaces, and must not be scored as such.'
+x-evidence:
+  fetched: '2026-08-04'
+  method: curl HEAD/GET + openssl s_client + dig

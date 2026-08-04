@@ -1,0 +1,65 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of the /.well-known/ discovery surface on every Crowd Street host
+result: none
+summary: Crowd Street publishes no /.well-known/ discovery documents on any host. No
+  security.txt, no OIDC/OAuth discovery, no api-catalog, no ai-plugin, no A2A agent
+  card. Recorded as evidence of the probe, not as a discovered artifact — no WellKnown
+  pointer is wired in apis.yml because nothing was served.
+hosts:
+- host: https://crowdstreet.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /security.txt
+    status: 404
+- host: https://api.crowdstreet.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+- host: https://app2.crowdstreet.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    accepted: false
+    reject_reason: HTML body — single-page-app wildcard catch-all, not an AgentCard
+- host: https://developer.crowdstreet.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    accepted: false
+    reject_reason: HTML body — 858-byte wildcard SPA shell, not an AgentCard
+related:
+  robots_txt:
+    url: https://crowdstreet.com/robots.txt
+    status: 200
+    note: 'User-agent: * Allow: / with a sitemap reference'
+  llms_txt:
+    url: https://crowdstreet.com/llms.txt
+    status: 200
+    file: ../llms/crowdstreet-llms.txt
+    note: served at /llms.txt but written in robots.txt syntax as an AI-crawler allow/deny
+      policy, not in the llms.txt link-list format
+x-evidence:
+  fetched: '2026-08-04'
+  method: curl -L with a browser user-agent; status and content-type recorded per path

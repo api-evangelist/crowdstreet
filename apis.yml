@@ -1,17 +1,33 @@
 aid: crowdstreet
 name: CrowdStreet
-description: 'CrowdStreet is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Crowd Street (formerly CrowdStreet) is an online private-markets investing
+  platform that gives accredited investors direct access to commercial real estate,
+  private equity, venture capital, private credit, and real estate fund offerings.
+  Founded in 2013 and headquartered in Austin, Texas, the company operates a marketplace
+  where sponsors raise capital and members subscribe to individual deals, diversified
+  funds, and managed portfolios, alongside an education center, glossary, and research
+  library. Crowd Street Capital LLC is a FINRA-member broker-dealer and Crowd Street
+  Advisors LLC is an SEC-registered investment adviser. The platform is delivered as
+  a members-only investor web application; as of this profile Crowd Street publishes
+  no public developer portal, API documentation, or machine-readable API contract.'
+image: https://framerusercontent.com/images/MOMWsQIFU1P9tV9VpqSGyrfVdPc.jpg
 url: https://raw.githubusercontent.com/api-evangelist/crowdstreet/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Real Estate
+- Commercial Real Estate
+- Investing
+- Private Markets
+- Alternative Investments
+- Crowdfunding
+- Financial Services
+- FinTech
+- Wealth Management
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +36,52 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://crowdstreet.com/
+- type: About
+  url: https://crowdstreet.com/about
+- type: Team
+  url: https://crowdstreet.com/about/team
+- type: Careers
+  url: https://crowdstreet.com/about/careers
+- type: SignUp
+  url: https://app2.crowdstreet.com/sign-up
+- type: Login
+  url: https://app2.crowdstreet.com/sign-in?type=password
+- type: Support
+  url: https://help.crowdstreet.com/
+- type: HelpCenter
+  url: https://help.crowdstreet.com/
+- type: FAQ
+  url: https://crowdstreet.com/faqs
+- type: Glossary
+  url: https://crowdstreet.com/glossary
+- type: Contact
+  url: https://crowdstreet.com/contact
+- type: Blog
+  url: https://crowdstreet.com/resources
+- type: Press
+  url: https://crowdstreet.com/media/news
+- type: GitHubOrganization
+  url: https://github.com/CrowdStreet
+- type: TermsOfService
+  url: https://crowdstreet.com/legal/terms
+- type: PrivacyPolicy
+  url: https://crowdstreet.com/legal/privacy-policy
+- type: Legal
+  url: https://crowdstreet.com/legal/disclosures
+- type: Compliance
+  url: https://crowdstreet.com/legal/disclosures
+- type: SecondaryMarket
   url: https://forgeglobal.com/crowdstreet_stock/
+- type: LLMsTxt
+  name: llms.txt (AI crawler access policy)
+  url: llms/crowdstreet-llms.txt
+- type: DomainSecurity
+  url: security/crowdstreet-domain-security.yml
+- type: Conformance
+  url: conformance/crowdstreet-conformance.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1

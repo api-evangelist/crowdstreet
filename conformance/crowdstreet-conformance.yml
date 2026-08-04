@@ -1,0 +1,85 @@
+generated: '2026-08-04'
+method: searched
+source: https://crowdstreet.com/legal/disclosures
+note: Crowd Street publishes no machine-readable API contract, so no technical standard
+  can be asserted from a specification. The conforming entries below are regulatory
+  and legal-disclosure obligations the company publishes on its own site; the technical
+  entries are recorded as not-conformant because the artifact that would evidence them
+  does not exist.
+standards:
+- id: sec-registered-investment-adviser
+  conforms: true
+  evidence: Crowd Street Advisors LLC is an SEC-registered investment adviser; Form
+    ADV is public at https://adviserinfo.sec.gov/firm/summary/299176 (linked from the
+    site footer)
+- id: finra-broker-dealer
+  conforms: true
+  evidence: Crowd Street Capital LLC is a FINRA-member broker-dealer; the site links
+    to https://brokercheck.finra.org/
+- id: sec-form-crs
+  conforms: true
+  evidence: Customer Relationship Summary (Form CRS) published at https://crowdstreet.com/legal/disclosures
+- id: sec-regulation-best-interest
+  conforms: true
+  evidence: Reg BI Disclosure published at https://crowdstreet.com/legal/disclosures
+- id: glba-privacy-notice
+  conforms: true
+  evidence: GLBA Notice published at https://crowdstreet.com/legal/disclosures
+- id: ccpa
+  conforms: true
+  evidence: California Resident Privacy Notice published at https://crowdstreet.com/legal/disclosures
+- id: esign-act
+  conforms: true
+  evidence: E-Sign and Electronic Delivery Consent published at https://crowdstreet.com/legal/disclosures
+- id: accredited-investor-verification
+  conforms: true
+  evidence: Offerings are restricted to accredited investors under Reg D; stated across
+    https://crowdstreet.com/invest/how-it-works and the offering disclosures
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI or Swagger document found on any host (see x-contract-discovery)
+- id: oauth2
+  conforms: false
+  evidence: no documented OAuth surface; /.well-known/oauth-authorization-server 404
+    on every host
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration 404 on every host
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public error contract; api.crowdstreet.com returns the AWS API Gateway
+    default '{"message":"Missing Authentication Token"}'
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt 404 on every host
+- id: rfc8615-well-known
+  conforms: false
+  evidence: no /.well-known/ document served on any host
+- id: a2a
+  conforms: false
+  evidence: no agent card at /.well-known/agent-card.json or /.well-known/agent.json;
+    200s on wildcard subdomains are HTML SPA shells
+x-contract-discovery:
+  date: '2026-08-04'
+  result: no machine-readable API contract published
+  hosts_probed:
+  - crowdstreet.com
+  - www.crowdstreet.com
+  - api.crowdstreet.com
+  - app2.crowdstreet.com
+  - developer.crowdstreet.com
+  - docs.crowdstreet.com
+  - help.crowdstreet.com
+  findings:
+  - 'api.crowdstreet.com resolves and answers on HTTPS but is a private AWS API Gateway
+    behind the investor application: GET / returns 403 with {"message":"Missing Authentication
+    Token"}. /openapi.json, /swagger.json, /v1/openapi.json, /api-docs, /docs and /graphql
+    all return 404. There is no anonymous contract to harvest.'
+  - developer.crowdstreet.com and docs.crowdstreet.com are wildcard DNS aliases that
+    serve the same 858-byte investor-portal SPA shell as status./trust./support. — they
+    are not a developer portal or documentation site.
+  - No GraphQL endpoint responded on any host.
+  - No hosted MCP server, no npm/PyPI/other registry package published under a Crowd
+    Street namespace.
+  - github.com/CrowdStreet exists with 15 repositories, all of them forks of third-party
+    Django/JavaScript libraries, last pushed 2021. No first-party SDK, CLI, or specification.

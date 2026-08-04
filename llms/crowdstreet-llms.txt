@@ -1,0 +1,18 @@
+# Allow AI engines that can enhance discoverability and citations.
+User-agent: OpenAI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic
+Allow: /
+
+User-agent: Perplexity-AI
+Allow: /
+
+# Disallow content scraping or training by unlisted AI bots.
+User-agent: *
+Disallow: /
+
+# Note: Content may be used for indexing and AI snippets, but not for direct model training without permission.
