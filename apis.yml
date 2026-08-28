@@ -10,6 +10,17 @@ description: 'Crowd Street (formerly CrowdStreet) is an online private-markets i
   Advisors LLC is an SEC-registered investment adviser. The platform is delivered as
   a members-only investor web application; as of this profile Crowd Street publishes
   no public developer portal, API documentation, or machine-readable API contract.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://framerusercontent.com/images/MOMWsQIFU1P9tV9VpqSGyrfVdPc.jpg
 url: https://raw.githubusercontent.com/api-evangelist/crowdstreet/refs/heads/main/apis.yml
 x-type: company
